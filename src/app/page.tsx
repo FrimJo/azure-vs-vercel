@@ -1,15 +1,16 @@
 import { db } from "@/server/db";
 import { users } from "@/server/db/schema";
+import { Suspense } from "react";
+import UserList from "./components/user-list";
 
 export default async function Home() {
   const dbUsers = await db.select().from(users).all();
   return (
     <main>
-      <h1>Users</h1>
-      <span>Length: {dbUsers.length}</span>
-      {dbUsers.map((user) => (
-        <div key={user.id}>{user.firstName}</div>
-      ))}
+      <h2>Users</h2>
+      <Suspense fallback="Loading...">
+        <UserList />
+      </Suspense>
     </main>
   );
 }
