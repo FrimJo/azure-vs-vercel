@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
+    "prebuild": "npm run db:generate && npm run db:push",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
