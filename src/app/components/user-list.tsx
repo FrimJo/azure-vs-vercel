@@ -1,9 +1,11 @@
 import { db } from "@/server/db";
-import { users } from "@/server/db/schema";
+import { users, type User } from "@/server/db/schema";
 import { revalidatePath } from "next/cache";
 
 export default async function UserList() {
-  const dbUsers = await db.select().from(users).all();
+  const dbUsers = await new Promise<User[]>((resolve) =>
+    setTimeout(() => db.select().from(users).all().then(resolve), 3000)
+  );
   return (
     <>
       <span>Length: {dbUsers.length}</span>

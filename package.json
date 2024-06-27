@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
+    "prebuild": "npm run db:migrate",
     "build": "next build",
-    "prestart": "npm run db:migrate",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "drizzle-kit generate",
