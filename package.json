@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "prebuild": "npm run db:migrate",
-    "build": "next build && cp -r .next/static .next/standalone/.next/ && mkdir -p public && cp -r public .next/standalone/",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "drizzle-kit generate",
